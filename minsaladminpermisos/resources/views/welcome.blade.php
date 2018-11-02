@@ -1,95 +1,143 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
+@extends('layouts.admin')
+@section('contenido')
+                 <!--Contenido -->
+                <div class="row">
+                @include('reportes.alerts.messages')
+                  <div class="span12">
+            
+                    <div id="target-1" class="widget">
+                
+                    <div class="widget-content">
+                  
+                      <h1>¡Bienvenido!!</h1>
+                    
+                      <h6 class="bigstats">Sistema Informático de manejo de permisos sanitarios de vehiculos que transportan alimentos en el salvador.</h6> 
+                  
+                    </div> <!-- /widget-content -->
+                
+                    </div> <!-- /widget -->
+            
+                  </div> <!-- /span12 -->
                 </div>
-            @endif
+                <!-- /.row -->
+                <div class="row">
+                  <div class="span6">
+                    <div class="widget widget-nopad">
+                      <div class="widget-header"> <i class="icon-list-alt"></i>
+                        <h3> Información</h3>
+                      </div>
+                      <!-- /widget-header -->
+                      <div class="widget-content">
+                        <div class="widget big-stats-container">
+                          <div class="widget-content">
+                            <h6 class="bigstats">Reportes Sencillos y Facil de Generar en formato estandar pdf  para los diferentes niveles Organizacionales</h6>                            
+                          </div>
+                          <!-- /widget-content --> 
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /widget -->
+                  </div>
+                  <!-- /span6 -->
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+                  <div class="span6">
+                    <div class="widget widget-nopad">
+                      <div class="widget-header"> <i class="icon-list-alt"></i>
+                        <h3> Misión </h3>
+                      </div>
+                      <!-- /widget-header -->
+                      <div class="widget-content">
+                        <div class="widget big-stats-container">
+                          <div class="widget-content">
+                            <h6 class="bigstats">Somos la instancia del Estado rectora en materia de salud, que garantiza a los habitantes de la República de El Salvador la cobertura de servicios oportunos e integrales, con equidad, calidad y calidez, en corresponsabilidad con la comunidad, incluyendo todos los sectores y actores sociales, para contribuir a lograr una mejor calidad de vida.</h6>                            
+                          </div>
+                          <!-- /widget-content --> 
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /widget -->
+                  </div>
+                  <!-- /span6 -->
+              </div>
+              <!-- /row --> 
+              <div class="row">
+                  <div class="span6">
+                    <div class="widget widget-nopad">
+                      <div class="widget-header"> <i class="icon-list-alt"></i>
+                        <h3> Visión</h3>
+                      </div>
+                      <!-- /widget-header -->
+                      <div class="widget-content">
+                        <div class="widget big-stats-container">
+                          <div class="widget-content">
+                            <h6 class="bigstats">Instancia rectora del sector fortalecida, conduciendo de manera eficiente y efectiva el Sistema Nacional de Salud y garantizando a los habitantes de la República de El Salvador servicios integrales de salud en armonía con el ambiente, con equidad, calidad y calidez, para la conservación y restablecimiento de la salud, estimulando para ello la corresponsabilidad y la contraloría social.</h6>                            
+                          </div>
+                          <!-- /widget-content --> 
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /widget -->
+                  </div>
+                  <!-- /span6 -->
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+                  <div class="span6">
+                    <div class="widget widget-nopad">
+                      <div class="widget-header"> <i class="icon-list-alt"></i>
+                        <h3> Principios </h3>
+                      </div>
+                      <!-- /widget-header -->
+                      <div class="widget-content">
+                        <div class="widget big-stats-container">
+                          <div class="widget-content">
+                            <h6 class="bigstats">
+    
+    Transparencia
+    <br/>
+    Decisiones de cara a la población y rendición de cuentas como premisas de buen gobierno, rectitud fiscal, sostenibilidad, honestidad y responsabilidad.
+    <br/>
+    Solidaridad
+    <br/>
+    Colaboración y redistribución para el bien común, unidad de intereses y propósitos.
+    <br/>
+    Compromiso
+    <br/>
+    Dar prioridad a la salud de los salvadoreños.
+    <br/>
+    Equidad
+    <br/>
+    Para que todas las personas disfruten de igualdad de oportunidades para desarrollar su potencial de salud y no experimenten desigualdades socialmente determinadas, injustas y evitables.
+    Universalidad
+    <br/>
+
+    En el acceso a los servicios y bienes, en el marco de un sistema de protección social universal para todos los salvadoreños.
+    <br/>
+    Gratuidad
+    <br/>
+
+    Derecho a recibir atención en los servicios de salud del sistema público sin tener que pagar por prestación.
+    <br/>
+    Intersectorialidad
+    <br/>
+    Abordaje de los problemas de salud involucrando en su identificación y solución sectores diferentes al sector salud, para enfrentar los factores que los determinan.
+    <br/>
+    Participación social
+    <br/>
+    Potenciar el poder de decisión de la población como fuente de soberanía e iniciativa políticas en los asuntos de su salud y en la rendición de cuentas.
+</h6>                            
+                          </div>
+                          <!-- /widget-content --> 
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /widget -->
+                  </div>
+                  <!-- /span6 -->
+              </div>
+              <!-- /row --> 
+    </div>
+@endsection
