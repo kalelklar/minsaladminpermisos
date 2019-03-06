@@ -109,7 +109,7 @@
      <label for="tipo" class="col-md-6 control-label">Tipo</label>
 
      <div class="controls">
-          {!! Form::select('type',[''=>'Seleccione un tipo de usuario','adminsistema'=>'Administrador del Sistema','estrategico'=>'Estrategico','tactico'=>'Tactico'],null,['class'=>'span6 form-control'])!!}
+          {!! Form::select('type',[''=>'Seleccione un tipo de usuario','adminsistema'=>'Administrador del Sistema','estrategico'=>'estrategico','tactico'=>'Tactico','operativo'=>'Operativo'],null,['class'=>'span6 form-control'])!!}
     </div>
     @if ($errors->has('type'))
     <span class="help-block">

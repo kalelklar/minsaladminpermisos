@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Reporte de Capacitaciones por Dependencia</title>
-  <link href="{{ public_path()}}/plantilla/css/cssreportes/estiloreportes.css" rel="stylesheet">
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ReportedecomprobantedepagoparaelprocesodepermisoSanitarios</title>
+    <link href="{{ public_path()}}/plantilla/css/cssreportes/estiloreportes.css" rel="stylesheet">   
 </head>
 <body>
 <script type="text/php">
@@ -23,12 +29,14 @@
             $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
     }
 </script>
+<div class="page-break">
+<!--Contenido -->
 <div>
     <header>
            <div id="logo" >
-            @if(is_file(public_path().'/logos/mtps_report.jpg'))
+            @if(is_file(public_path().'/logos/minsal_report.jpg'))
             <div class="foto1" >
-                <img src="{{ public_path()}}/logos/mtps_report.jpg" height="110px" width="220px" class="img-thumbnail" align="left">
+                <img src="{{ public_path().'/logos/minsal_report.jpg'}}" height="110px" width="220px" class="img-thumbnail" align="left">
             </div>
             @else
             <div class="foto">
@@ -38,7 +46,7 @@
 
             @if(is_file(public_path().'/logos/escudo.jpg'))
             <div class="foto" >
-                <img src="{{ public_path()}}/logos/escudo.jpg" height="110px" width="110px" class="img-thumbnail" align="right">
+                <img src="{{ public_path().'/logos/escudo.jpg'}}" height="110px" width="110px" class="img-thumbnail" align="right">
             </div>
             @else
             <div class="foto">
@@ -46,91 +54,72 @@
             </div>
             @endif
 
-</div>
-    <center><div class="encabezado" id="encabezado">
-            <h2 style="line-height=0">Ministerio de Trabajo y Previsión Social</h2>
-            <h2 style="line-height=0">Departamento de Recurso Humanos </h2>
+        </div>
+
+        <center><div class="encabezado" id="encabezado">
+            <h2 style="line-height=0">Ministerio de Salud de El Salvador</h2>
+            <h2 style="line-height=0">Unidad de Permisos Sanitarios </h2>
             <br>
             <h5 style="line-height=0">Generado: {{date("d-m-Y G:i:s")}} por: {{Auth::user()->name}}</h5>
 
-    </div></center>
-   </header>
+        </div></center>
 
-<table class="table table-bordered table-hover">
+        
+</header>
+</div>
+<div class="panel-heading">
+<br>
+<br>            
+<table WIDTH=100% class="table table-striped table-bordered">
+    @for($i=0;$i < count($result); $i++)  
         <thead>
           <tr>
-            <th colspan="8">Reporte de Capacitaciones por Dependencia</th>
+            <th colspan="4">Reporte de comprobante de pago para el proceso de permiso Sanitarios en el area de San Salvador</th>
           </tr>
           <tr>
-            <th colspan="8"><b>Periodo:</b> desde {{$fechaInicial}} hasta {{$fechaFinal}}</th>
+            <th colspan="2">Fecha Ingreso de Solicitud: {{$result[$i]->fechaingreso}}</th>
+            <th >Estado: {{$result[$i]->estado}}  </th>
+            <th >Nombre de Empresa:{{$result[$i]->nombreempresa}} </th>
           </tr>
           <tr>
-            <th >Dependencia</th>
-            <th >Cargo Funcional</th>
-            <th >Componente</th>
-            <th >Tema</th>
-            <th >Horas</th>
-            <th>Cantidad de Mujeres</th>
-            <th>Cantidad de Hombres</th>
-            <th>Total de Participantes</th>
+            <th>Direccion:</th>
+            <th>{{$result[$i]->direccion}}</th>
+            <th>Reprentante Legal: </th>
+            <th>{{$result[$i]->representante}}</th>
           </tr>
         </thead>
         <tbody>
-        @php($totalhombres=0)
-        @php($totalmujeres=0)
-        @php($totalhoras=0)
-        @php($totalparticipaciones=0)
-        @php($filas=0)
-        @php($i=0)
-        @foreach($result as $res)                        
+                              
         <tr>
-          @php($i+=1)
-          @if($i===1)
-          <td>{{$seccion->nombre_seccion}}</td>
-          @else
-          <td>&nbsp;&nbsp;</td>
-          @endif
-           <td>
-               {{$res->CargoFuncional}}
             <td>
-             {{$res->Componente}}
-           </td>
-           <td>
-             {{$res->Tema}}
-           </td>
-           <td>
-             {{$res->horas_numerico}}
-             @php($totalhoras+=$res->horas_numerico)
-           </td>
+             Vehiculo: {{$result[$i]->modelo}}
+            </td>
             <td>
-             {{$res->cantmujeres}}
-             @php($totalmujeres+=$res->cantmujeres)
-           </td>
+             Tipo: {{$result[$i]->tipo}}
+            </td>
             <td>
-             {{$res->canthombres}}
-             @php($totalhombres+=$res->canthombres)
-           </td>
-           <td>
-             {{$res->participaciones}}
-             @php($totalparticipaciones+=$res->participaciones)
-           </td>
-          
-         </tr>
-         @endforeach
-        
-         
-         <tr>
-         <td colspan="4">Total</td>
-         <td>{{$totalhoras}}</td>
-         <td>{{$totalmujeres}}</td>
-         <td>{{$totalhombres}}</td>
-         <td>{{$totalparticipaciones}}</td>
-         </tr>
-
-    
+             Placa: {{$result[$i]->placa}}
+            </td>
+            <td>
+             Capacidad: {{$result[$i]->capacidad}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+             Total a Pagar:
+            </td>
+            <td>
+             35.87
+            </td>
+        </tr>
+    @endfor
+            
         </tbody>
       </table>
-
-      
+</div>
+</div>
+</div>              
+<!-- Fin Contenido-->
+</div>
 </body>
-</html>
+</html> 

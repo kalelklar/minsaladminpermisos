@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace minsaladminpermisos\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

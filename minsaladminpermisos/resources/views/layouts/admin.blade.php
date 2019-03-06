@@ -73,22 +73,26 @@
         @if (Auth::guest())
         <li class="active"><a href="{{url('/')}}"><i class="icon-dashboard"></i><span>Inicio</span> </a> </li>
         @else
+        @if (Auth::user()->type=="operativo")
+        <li class="active"><a href="{{url('/')}}"><i class="icon-dashboard"></i><span>Inicio</span> </a></li>
+        @include('layouts.navoperativo')
+        @endif
         @if (Auth::user()->type=="estrategico")
-        <li class="active"><a href="{{url('/')}}"><i class="icon-dashboard"></i><span>Inicio</span> </a> </li>
+        <li class="active"><a href="{{url('/')}}"><i class="icon-dashboard"></i><span>Inicio</span> </a></li>
         @include('layouts.navestrategico')
         @include('layouts.navtactico')
         @endif
 
         @if (Auth::user()->type=="tactico")
-        <li class="active"><a href="{{url('/')}}"><i class="icon-dashboard"></i><span>Inicio</span> </a> </li>
+        <li class="active"><a href="{{url('/')}}"><i class="icon-dashboard"></i><span>Inicio</span> </a></li>
         @include('layouts.navtactico')
         @endif
 
         @if (Auth::user()->type=="adminsistema")
         <li class="active"><a href="{{url('/')}}"><i class="icon-dashboard"></i><span>Inicio</span> </a> </li>
-        @include('layouts.navestrategico')
-        @include('layouts.navtactico')
+
         @include('layouts.navadminsist')
+
         @endif
         @endif
       </ul>

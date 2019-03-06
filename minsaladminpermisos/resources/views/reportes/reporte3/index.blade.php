@@ -9,8 +9,8 @@
                 
                     <div class="widget-content">
                   
-                      <h1> Memoria de Labores</h1>
-                      <h6 class="bigstats">Es un reporte que se genera apartir de los datos registrados en el Sistema fichas de Empleados que nos permite ver cantidad de mujeres, cantidad de hombres, total mujeres y hombres y total de horas recibidas por componente </h6> 
+                      <h1> Resumen de los Vehiculos que tienen permiso en el en el area de San Salvador</h1>
+                      <h6 class="bigstats">Es un reporte que se genera apartir de los datos registrados en el Sistema que nos permite ver los Vehiculos que tienen permiso en el en el area de San Salvador</h6> 
                   
                     </div> <!-- /widget-content -->
                 
@@ -52,14 +52,14 @@
                 
                     
                     <div class="control-group">                     
-                      <label class="control-label" for="fechaInicial">Fecha Inicial</label>
+                      <label class="control-label" for="fechainicial">Fecha Inicial</label>
                       <div class="controls">
-                        <input type="date" class="span6" id="fechaInicial" name="fechaInicial">
+                        <input type="date" class="span6" id="fechainicial" name="fechainicial">
                       </div> <!-- /controls -->   
                       <hr>
-                       <label class="control-label" for="fecha">Fecha Final</label>
+                       <label class="control-label" for="fechafinal">Fecha Final</label>
                       <div class="controls">
-                        <input type="date" class="span6" id="fechaFinal" name="fechaFinal">
+                        <input type="date" class="span6" id="fechafinal" name="fechafinal">
                       </div> 
                     </div> <!-- /control-group -->
 
@@ -77,7 +77,8 @@
                 </div>
                 
               </div>
-              
+              @include('reportes.alerts.requests')   
+              @include('reportes.alerts.messages')
               
             </div>
             

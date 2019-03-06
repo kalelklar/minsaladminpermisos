@@ -62,6 +62,9 @@
                            @if($u->type=='tactico')
                            <td>Tactico</td>
                            @endif
+                            @if($u->type=='operativo')
+                           <td>Operativo</td>
+                           @endif
                            <td>
                             <a href="{{URL::action('HomeController@edit',$u->id)}}"><button type="button" class="btn btn-xs btn-primary"><i class="glyphicon  glyphicon-edit"></i> Editar</button></a>
                             <a href="" data-target="#modal-delete-{{$u->id}}" data-toggle="modal"><button  class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove-circle"></i> Eliminar</button></a>

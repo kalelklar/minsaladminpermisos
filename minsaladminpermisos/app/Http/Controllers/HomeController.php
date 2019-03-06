@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace minsaladminpermisos\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use minsaladminpermisos\Http\Requests;
 
 use Illuminate\Support\Facades\Redirect;
 
@@ -12,7 +12,7 @@ use Carbon\Carbon;
 use Session;
 use DB;
 //para usuario
-use App\User;
+use minsaladminpermisos\User;
 
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;

@@ -33,5 +33,12 @@ class UsersTableSeeder extends Seeder
             'password'=>\Hash::make('admin1234'),
             'type'=>'adminsistema',
         	));
+
+        \DB:: table('users')->insert(array(
+            'name' =>'Operativo',
+            'email'=>'operativo@gmail.com',
+            'password'=>\Hash::make('operativo1234'),
+            'type'=>'operativo',
+            ));
     }
 }

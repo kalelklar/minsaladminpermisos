@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -154,14 +154,16 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        minsaladminpermisos\Providers\AppServiceProvider::class,
+        minsaladminpermisos\Providers\AuthServiceProvider::class,
+        // minsaladminpermisos\Providers\BroadcastServiceProvider::class,
+        minsaladminpermisos\Providers\EventServiceProvider::class,
+        minsaladminpermisos\Providers\RouteServiceProvider::class,
         // ...
         Collective\Html\HtmlServiceProvider::class,
         // ...
+        Barryvdh\DomPDF\ServiceProvider::class,
+
 
     ],
 
@@ -215,6 +217,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         // ...
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

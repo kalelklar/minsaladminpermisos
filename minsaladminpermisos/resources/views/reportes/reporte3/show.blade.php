@@ -3,15 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Memoria de Labores</title>
+	<title>Resumen de los Vehiculos que tienen permiso en el en el area de San Salvador</title>
 </head>
 <body>
 
    <header>
        
-   <center><div><h4>Ministerio de Trabajo y Previsión Social</h4>
-   <h4>Departamento de Recursos Humanos</h4>  
-   <h3>Memoria de Labores</h3><h4><b>Periodo:</b>
+   <center><div><h4>Ministerio de Salud de El Salvador</h4>
+   <h4>Unidad de Permisos Sanitarios</h4>  
+   <h3>Resumen de los Vehiculos que tienen permisos en el area de San Salvador</h3><h4><b>Periodo:</b>
         Desde: {{$fechaInicial}}
         Hasta:{{$fechaFinal}}</h4></div></center>
    
@@ -20,49 +20,45 @@
    <table border="1" class="table table-bordered table-hover">
         <thead>
           <tr>
-            <th >Componente</th>
-            <th >Mujeres por Componente</th>
-            <th >Hombres por Componente</th>
-            <th>Total de participantes por Componente</th>
-            <th>Total de Horas Recibidas por Componente</th>
+            <th >Fecha Ingreso de la Solicitud</th>
+            <th >Vehiculo</th>
+            <th>Placa</th>
+            <th >Empresa</th>
+            <th>Estado</th>
           </tr>
         </thead>
         <tbody>
-          @php($totalmujeres=0)
-          @php($totalhombres=0)
-          @php($totalparticipantes=0)
-          @php($totalhoras=0)
+          @php($total=0)
+
          @foreach($result as $res)
+         @php($total=$total+1)
          <tr>
            <td>
-             {{$res->programa}}
+             {{$res->fechaingreso}}
            </td>
           
             <td>
-             {{$res->cantmujeres}}
-             @php($totalmujeres+=$res->cantmujeres)
+             {{$res->modelo}}
+
            </td>
             <td>
-             {{$res->canthombres}}
-             @php($totalhombres+=$res->canthombres)
+             {{$res->placa}}
+
            </td>
             <td>
-             {{$res->participaciones}}
-             @php($totalparticipantes+=$res->participaciones)
+             {{$res->nombreempresa}}
+
            </td>
              <td>
-             {{$res->TotalHorasInvertidas}}
-             @php($totalhoras+=$res->TotalHorasInvertidas)
+             {{$res->estado}}
+
            </td>
           
          </tr>
          @endforeach
          <tr>
-           <td>Total</td>
-            <td>{{$totalmujeres}}</td>
-             <td>{{$totalhombres}}</td>
-              <td>{{$totalparticipantes}}</td>
-               <td>{{$totalhoras}}</td>
+           <td colspan="4">Total de Vehiculos</td>
+           <td>{{$total}}</td>
          </tr>
         </tbody>
         <tfoot>
@@ -85,10 +81,6 @@
 
                             <div class="stat"><a href="{{URL::action('reporte3Controller@reportepdf',[$fechaInicial,$fechaFinal])}}"><i class="icon-large icon-file
         "></i> <span class="value">PDF</span></a></div>
-                            <!-- .stat -->
-                            
-                                <div class="stat"><a href="{{URL::action('reporte3Controller@reporteexcel',[$fechaInicial,$fechaFinal])}}"><i class="icon-large icon-table"></i><span class="value">Excel</span></a>
-                          </div>
                             <!-- .stat -->
 
                             <div class="stat"> <a href="{{ URL::previous() }}"><i class=" icon-chevron-left"></i> <span class="value">volver</span></a></div>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Reporte de Capacitaciones por Dependencia</title>
+  <title>Reporte de comprobante de pago para el proceso de permiso Sanitarios</title>
 
 </head>
 <body>
@@ -11,79 +11,55 @@
  
     <header>
    
-   <center><div><h4>Ministerio de Trabajo y Previsión Social</h4>
-   <h4>Departamento de Recursos Humanos</h4>  
-   <h3>Reporte de Capacitaciones por Dependencia</h3>
-   <h4><b>Periodo:</b>
-        Desde: {{$fechaInicial}}
-        Hasta:{{$fechaFinal}}</h4></div></center>
-   
-  
+   <center><div><h4>Ministerio de Salud de El Salvador</h4>
+   <h4>Unidad de Permisos Sanitarios</h4></center>
+   <br>
+   <br>
    </header>
    <table border="1" class="table table-bordered table-hover">
+    @for($i=0;$i < count($result); $i++)  
         <thead>
           <tr>
-            <th >Dependencia</th>
-            <th >Cargo Funcional</th>
-            <th >Componente</th>
-            <th >Tema</th>
-            <th >Horas</th>
-            <th>Cantidad de Mujeres</th>
-            <th>Cantidad de Hombres</th>
-            <th>Total de Participantes</th>
+            <th colspan="4">Reporte de comprobante de pago para el proceso de permiso Sanitarios en el area de San Salvador</th>
+          </tr>
+          <tr>
+            <th colspan="2">Fecha Ingreso de Solicitud: {{$result[$i]->fechaingreso}}</th>
+            <th >Estado: {{$result[$i]->estado}}  </th>
+            <th >Nombre de Empresa:{{$result[$i]->nombreempresa}} </th>
+          </tr>
+          <tr>
+            <th>Direccion:</th>
+            <th>{{$result[$i]->direccion}}</th>
+            <th>Reprentante Legal: </th>
+            <th>{{$result[$i]->representante}}</th>
           </tr>
         </thead>
         <tbody>
-        @php($totalhombres=0)
-        @php($totalmujeres=0)
-        @php($totalhoras=0)
-        @php($totalparticipaciones=0)
-        @php($filas=0)
-        @php($i=0)
-        @foreach($result as $res)                        
+                              
         <tr>
-          @php($i+=1)
-          @if($i===1)
-          <td rowspan ="{{count($result)}}">{{$seccion->nombre_seccion}}</td>
-          @endif
-           <td>
-               {{$res->CargoFuncional}}
             <td>
-             {{$res->Componente}}
-           </td>
-           <td>
-             {{$res->Tema}}
-           </td>
-           <td>
-             {{$res->horas_numerico}}
-             @php($totalhoras+=$res->horas_numerico)
-           </td>
+             Vehiculo: {{$result[$i]->modelo}}
+            </td>
             <td>
-             {{$res->cantmujeres}}
-             @php($totalmujeres+=$res->cantmujeres)
-           </td>
+             Tipo: {{$result[$i]->tipo}}
+            </td>
             <td>
-             {{$res->canthombres}}
-             @php($totalhombres+=$res->canthombres)
-           </td>
-           <td>
-             {{$res->participaciones}}
-             @php($totalparticipaciones+=$res->participaciones)
-           </td>
-          
-         </tr>
-         @endforeach
-        
-         
-         <tr>
-         <td colspan="4">Total</td>
-         <td>{{$totalhoras}}</td>
-         <td>{{$totalmujeres}}</td>
-         <td>{{$totalhombres}}</td>
-         <td>{{$totalparticipaciones}}</td>
-         </tr>
-
-    
+             Placa: {{$result[$i]->placa}}
+            </td>
+            <td>
+             Capacidad: {{$result[$i]->capacidad}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+             Total a Pagar:
+            </td>
+            <td>
+             35.87
+            </td>
+        </tr>
+    @endfor
+            
         </tbody>
       </table>
                     <div class="row">
@@ -100,11 +76,8 @@
                         <div class="widget-content">
                           <div id="big_stats" class="cf">
 
-                            <div class="stat"><a href="{{URL::action('reporte2Controller@reportepdf',[$fechaInicial,$fechaFinal,$id_seccion])}}"><i class="icon-large icon-file
+                            <div class="stat"><a href="{{URL::action('SolicitudController@reportepdf2',[$idsolicitud])}}"><i class="icon-large icon-file
         "></i> <span class="value">PDF</span></a></div>
-                            <!-- .stat -->
-                               <div class="stat"><a href="{{URL::action('reporte2Controller@reporteexcel',[$fechaInicial,$fechaFinal,$id_seccion])}}"><i class="icon-large icon-table"></i><span class="value">Excel</span></a>
-                          </div>
                             <!-- .stat -->
                             <div class="stat"> <a href="{{ URL::previous() }}"><i class=" icon-chevron-left"></i> <span class="value">volver</span></a></div>
                        
